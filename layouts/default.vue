@@ -14,35 +14,35 @@
             <ul>
                 <li>
                     <NuxtLink to="#" class="flex gap-2 items-center px-3 py-3 font-semibold rounded"
-                        :class="{ 'bg-primary-app': $route.path === '/' }">
+                        :class="{ 'bg-primary-app dark:text-black': $route.path === '/' }">
                         <UIcon name="i-heroicons-chart-pie" class="w-5 h-5" /> Dashboard
                     </NuxtLink>
                 </li>
                 <li>
                     <NuxtLink to="#" class="flex gap-2 items-center px-3 py-3 font-semibold rounded"
-                        :class="{ 'bg-primary-app': $route.path === '/pages' }">
+                        :class="{ 'bg-primary-app dark:text-black': $route.path === '/pages' }">
                         <UIcon name="i-heroicons-document" class="w-5 h-5" /> Pages
                     </NuxtLink>
                 </li>
                 <li>
                     <NuxtLink to="#" class="flex gap-2 items-center px-3 py-3 font-semibold rounded"
-                        :class="{ 'bg-primary-app': $route.path === '/post' }">
+                        :class="{ 'bg-primary-app dark:text-black': $route.path === '/post' }">
                         <UIcon name="i-heroicons-computer-desktop" class="w-5 h-5" /> Post
                     </NuxtLink>
                 </li>
                 <li>
                     <NuxtLink to="#" class="flex gap-2 items-center px-3 py-3 font-semibold rounded"
-                        :class="{ 'bg-primary-app': $route.path === '/media' }">
+                        :class="{ 'bg-primary-app dark:text-black': $route.path === '/media' }">
                         <UIcon name="i-heroicons-photo" class="w-5 h-5" /> Media
                     </NuxtLink>
                 </li>
                 <li>
                     <NuxtLink to="#" class="flex gap-2 items-center px-3 py-3 font-semibold rounded"
-                        :class="{ 'bg-primary-app': $route.path === '/user-and-role' }">
+                        :class="{ 'bg-primary-app dark:text-black': $route.path === '/user-and-role' }">
                         <UIcon name="i-heroicons-user-group" class="w-5 h-5" /> User & Role
                     </NuxtLink>
                     <NuxtLink to="/setting" class="flex gap-2 items-center px-3 py-3 font-semibold rounded"
-                        :class="{ 'bg-primary-app': $route.path === '/setting' }">
+                        :class="{ 'bg-primary-app dark:text-black': $route.path === '/setting' }">
                         <UIcon name="i-heroicons-cog-20-solid" class="w-5 h-5" /> Setting
                     </NuxtLink>
                 </li>
@@ -71,8 +71,10 @@
                     </UDropdown>
                 </div>
             </nav>
-            <div class="px-8 py-8">
-                <slot />
+            <div class="px-8 py-8 flex justify-center">
+                <div class=" max-w-[1280px] w-full">
+                    <slot />
+                </div>
             </div>
         </div>
     </div>

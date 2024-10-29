@@ -62,7 +62,7 @@
                         <a href="">forgot password?</a>
                     </div>
                     <div class="flex justify-center px-10 mt-12">
-                        <UButton :ui="{ rounded: 'rounded-full' }" class="px-16 text-black border-[3px] border-primary-app-100" size="xl">
+                        <UButton :ui="{ rounded: 'rounded-full' }" class="px-16 text-black border-[3px] border-primary-app-100 dark:border-primary-app-800" size="xl">
                             Sign in
                         </UButton>
                     </div>

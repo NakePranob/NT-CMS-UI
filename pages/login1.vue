@@ -49,7 +49,7 @@
                         <UCheckbox label="Remember me" />
                         <NuxtLink to="#">forgot password?</NuxtLink>
                     </div>
-                    <UButton :ui="{ rounded: 'rounded' }" block size="xl" class="mt-10 border-[3px] border-primary-app-100">Sign in</UButton>
+                    <UButton :ui="{ rounded: 'rounded' }" block size="xl" class="mt-10 border-[3px] border-primary-app-100 dark:border-primary-app-800">Sign in</UButton>
                 </form>
                 <div class="flex-1 flex items-center justify-center opacity-60">
                     don'y have an Account ? <a href="" class="text-primary-app ms-2">Sign up</a>
