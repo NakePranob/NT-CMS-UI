@@ -1,5 +1,5 @@
 <template>
     <div>
-        555
+        <h1 class="text-3xl font-semibold">General Setting</h1>
     </div>
 </template>
