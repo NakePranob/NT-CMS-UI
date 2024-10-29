@@ -15,9 +15,37 @@
             </div>
             <ul>
                 <li>
-                    <NuxtLink to="/login1" class="flex gap-2 items-center px-3 py-3 text-sm rounded" 
+                    <NuxtLink to="/login1" class="flex gap-2 items-center px-3 py-3 font-semibold rounded" 
                     :class="{'bg-primary-app': $route.path === '/'}">
                         <UIcon name="i-heroicons-chart-pie" class="w-5 h-5" /> Dashboard 
+                    </NuxtLink>
+                </li>
+                <li>
+                    <NuxtLink to="/login1" class="flex gap-2 items-center px-3 py-3 font-semibold rounded" 
+                    :class="{'bg-primary-app': $route.path === '/pages'}">
+                        <UIcon name="i-heroicons-chart-pie" class="w-5 h-5" /> Pages 
+                    </NuxtLink>
+                </li>
+                <li>
+                    <NuxtLink to="/login1" class="flex gap-2 items-center px-3 py-3 font-semibold rounded" 
+                    :class="{'bg-primary-app': $route.path === '/post'}">
+                        <UIcon name="i-heroicons-chart-pie" class="w-5 h-5" /> Post 
+                    </NuxtLink>
+                </li>
+                <li>
+                    <NuxtLink to="/login1" class="flex gap-2 items-center px-3 py-3 font-semibold rounded" 
+                    :class="{'bg-primary-app': $route.path === '/media'}">
+                        <UIcon name="i-heroicons-chart-pie" class="w-5 h-5" /> Media 
+                    </NuxtLink>
+                </li>
+                <li>
+                    <NuxtLink to="/login1" class="flex gap-2 items-center px-3 py-3 font-semibold rounded" 
+                    :class="{'bg-primary-app': $route.path === '/user-and-role'}">
+                        <UIcon name="i-heroicons-chart-pie" class="w-5 h-5" /> User & Role 
+                    </NuxtLink>
+                    <NuxtLink to="/login1" class="flex gap-2 items-center px-3 py-3 font-semibold rounded" 
+                    :class="{'bg-primary-app': $route.path === '/setting'}">
+                        <UIcon name="i-heroicons-chart-pie" class="w-5 h-5" /> Setting 
                     </NuxtLink>
                 </li>
             </ul>
@@ -42,3 +70,10 @@ async function search(q: string) {
   return users
 }
 </script>
+
+  
+<style scoped>
+    div {
+        font-family: "NTR", sans-serif;
+    }
+</style>
