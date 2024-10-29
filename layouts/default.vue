@@ -52,8 +52,23 @@
             <nav
                 class="flex items-center justify-between h-[60px] bg-white dark:bg-gray-900 border-b dark:border-gray-700 px-8">
                 <div class="flex items-center gap-2">
-                    <UIcon name="i-heroicons-bars-3-20-solid" class="w-5 h-5 opacity-40" />
+                    <button class="flex items-center">
+                        <UIcon name="i-heroicons-bars-3-20-solid" class="w-6 h-6 opacity-40" />
+                    </button>
                     <p class="mt-1 font-medium hidden md:block">National Telecom Public Company Limited</p>
+                </div>
+                <div class="flex items-center">
+                    <UDropdown :items="items" :popper="{ placement: 'bottom-start' }">
+                        <span class="flex items-center gap-2"">
+                            <UAvatar
+                                size="sm"
+                                src="https://avatars.githubusercontent.com/u/739984?v=4"
+                                alt="Avatar"
+                            />
+                            Howdy , National Telecom
+                            <UIcon name="i-heroicons-chevron-down-20-solid" class="w-5 h-5 opacity-40 -mt-1" />
+                        </span>
+                    </UDropdown>
                 </div>
             </nav>
             <div class="px-8 py-8">
@@ -66,6 +81,37 @@
 <script setup lang="ts">
 const loading = ref(false)
 const selected = ref()
+
+const items = [
+    [{
+        label: 'Profile',
+        avatar: {
+            src: 'https://avatars.githubusercontent.com/u/739984?v=4'
+        }
+    }], [{
+        label: 'Edit',
+        icon: 'i-heroicons-pencil-square-20-solid',
+        shortcuts: ['E'],
+        click: () => {
+            console.log('Edit')
+        }
+    }, {
+        label: 'Duplicate',
+        icon: 'i-heroicons-document-duplicate-20-solid',
+        shortcuts: ['D'],
+        disabled: true
+    }], [{
+        label: 'Archive',
+        icon: 'i-heroicons-archive-box-20-solid'
+    }, {
+        label: 'Move',
+        icon: 'i-heroicons-arrow-right-circle-20-solid'
+    }], [{
+        label: 'Delete',
+        icon: 'i-heroicons-trash-20-solid',
+        shortcuts: ['⌘', 'D']
+    }]
+]
 
 async function search(q: string) {
     loading.value = true
