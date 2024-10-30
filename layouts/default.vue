@@ -1,6 +1,14 @@
 <template>
     <div class='flex'>
-        <div class="w-72 fixed top-0 -left-72 lg:static border-e dark:border-gray-700 h-screen px-4 pt-4">
+        <span @click="isOpen = !isOpen" class="lg:hidden fixed top-0 left-0 w-screen h-screen bg-slate-500/20 z-10"
+        :class="{'hidden': !isOpen}"></span>
+        <div class="w-72 fixed top-0 border-e dark:border-gray-700 h-screen px-4 pt-4 backdrop-blur-3xl z-20 bg-white
+        transition-all duration-300 ease-in-out"
+            :class="{
+            '-left-72': !isOpen,
+            'left-0': isOpen
+            }"
+        >
             <img src="/img/logoText.png" alt="logo">
             <div class="mt-10 mb-[23px]">
                 <UInputMenu v-model="selected" :search="search" :loading="loading" placeholder="Search..."
@@ -48,11 +56,14 @@
                 </li>
             </ul>
         </div>
-        <div class="flex-1 overflow-y-auto h-screen">
+        <div class="flex-1 overflow-y-auto h-screen flex justify-end">
             <nav class="z-10 flex items-center justify-between h-[60px] backdrop-blur-3xl
-            border-b dark:border-gray-700 px-2 sm:px-8 fixed top-0 right-0 w-full lg:w-[calc(100%-288px)]">
+            border-b dark:border-gray-700 px-2 sm:px-8 fixed top-0 right-0 w-full transition-all duration-300 ease-in-out"
+            :class="{
+                'lg:w-[calc(100%-288px)]': isOpen
+            }">
                 <div class="flex items-center gap-2">
-                    <button class="flex items-center">
+                    <button class="flex items-center" @click="isOpen = !isOpen">
                         <UIcon name="i-heroicons-bars-3-20-solid" class="w-6 h-6 opacity-40" />
                     </button>
                     <p class="mt-1 font-medium">National Telecom Public Company Limited</p>
@@ -69,7 +80,12 @@
                     </UDropdown>
                 </div>
             </nav>
-            <div class="px-2 sm:px-8 flex justify-center mt-[60px]">
+            <div class="px-2 sm:px-8 flex justify-center mt-[60px]
+            transition-all duration-300 ease-in-out"
+            :class="{
+                'w-full lg:w-[calc(100%-288px)]': isOpen,
+                'w-full': !isOpen
+            }">
                 <div class=" max-w-[1280px] w-full">
                     <slot />
                 </div>
@@ -81,6 +97,11 @@
 <script setup lang="ts">
 const loading = ref(false)
 const selected = ref()
+const isOpen = ref(false);
+
+onMounted(() => {
+  isOpen.value = window.innerWidth > 1024;
+});
 
 const items = [
     [{
@@ -122,6 +143,7 @@ async function search(q: string) {
 
     return users
 }
+
 </script>
 
 
