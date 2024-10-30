@@ -64,9 +64,10 @@
             }">
                 <div class="flex items-center gap-2">
                     <button class="flex items-center" @click="isOpen = !isOpen">
-                        <UIcon name="i-heroicons-bars-3-20-solid" class="w-6 h-6 opacity-40" />
+                        <UIcon v-if="!isOpen" name="i-heroicons-bars-3-20-solid" class="w-6 h-6 opacity-40" />
+                        <UIcon v-else name="i-heroicons-x-mark-20-solid" class="w-7 h-7 opacity-40" />
                     </button>
-                    <p class="mt-1 font-medium">National Telecom Public Company Limited</p>
+                    <p class="mt-[3px] font-medium">National Telecom Public Company Limited</p>
                 </div>
                 <div class="flex items-center gap-2">
                     <UAvatar
@@ -86,7 +87,7 @@
                 'w-full lg:w-[calc(100%-288px)]': isOpen,
                 'w-full': !isOpen
             }">
-                <div class=" max-w-[1280px] w-full">
+                <div class="w-full max-w-[1280px]">
                     <slot />
                 </div>
             </div>
