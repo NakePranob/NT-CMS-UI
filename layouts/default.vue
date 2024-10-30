@@ -1,8 +1,8 @@
 <template>
     <div class='flex'>
-        <span @click="isOpen = !isOpen" class="lg:hidden fixed top-0 left-0 w-screen h-screen bg-slate-500/20 z-10"
+        <span @click="isOpen = !isOpen" class="lg:hidden fixed top-0 left-0 w-screen h-screen bg-slate-500/20 dark:bg-slate-800/20 z-10"
         :class="{'hidden': !isOpen}"></span>
-        <div class="w-72 fixed top-0 border-e dark:border-gray-700 h-screen px-4 pt-4 backdrop-blur-3xl z-20 bg-white
+        <div class="w-72 fixed top-0 border-e dark:border-gray-700 h-screen px-4 pt-4 backdrop-blur-3xl z-20 bg-white/80 dark:bg-neutral-950/0
         transition-all duration-300 ease-in-out"
             :class="{
             '-left-72': !isOpen,
