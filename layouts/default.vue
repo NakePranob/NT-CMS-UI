@@ -1,6 +1,6 @@
 <template>
     <div class='flex'>
-        <div class="w-72 bg-white dark:bg-gray-900 border-e dark:border-gray-700 h-screen px-4 pt-4">
+        <div class="w-72 fixed top-0 -left-72 lg:static border-e dark:border-gray-700 h-screen px-4 pt-4">
             <img src="/img/logoText.png" alt="logo">
             <div class="mt-10 mb-[23px]">
                 <UInputMenu v-model="selected" :search="search" :loading="loading" placeholder="Search..."
@@ -13,7 +13,7 @@
             </div>
             <ul>
                 <li>
-                    <NuxtLink to="#" class="flex gap-2 items-center px-3 py-3 font-semibold rounded"
+                    <NuxtLink to="/" class="flex gap-2 items-center px-3 py-3 font-semibold rounded"
                         :class="{ 'bg-primary-app dark:text-black': $route.path === '/' }">
                         <UIcon name="i-heroicons-chart-pie" class="w-5 h-5" /> Dashboard
                     </NuxtLink>
@@ -37,7 +37,7 @@
                     </NuxtLink>
                 </li>
                 <li>
-                    <NuxtLink to="#" class="flex gap-2 items-center px-3 py-3 font-semibold rounded"
+                    <NuxtLink to="/user-and-role" class="flex gap-2 items-center px-3 py-3 font-semibold rounded"
                         :class="{ 'bg-primary-app dark:text-black': $route.path === '/user-and-role' }">
                         <UIcon name="i-heroicons-user-group" class="w-5 h-5" /> User & Role
                     </NuxtLink>
@@ -48,9 +48,9 @@
                 </li>
             </ul>
         </div>
-        <div class="flex-1 overflow-y-auto bg-slate-50 dark:bg-gray-800 h-screen">
-            <nav
-                class="flex items-center justify-between h-[60px] bg-white dark:bg-gray-900 border-b dark:border-gray-700 px-8">
+        <div class="flex-1 overflow-y-auto h-screen">
+            <nav class="z-10 flex items-center justify-between h-[60px] backdrop-blur-3xl
+            border-b dark:border-gray-700 px-2 sm:px-8 fixed top-0 right-0 w-full lg:w-[calc(100%-288px)]">
                 <div class="flex items-center gap-2">
                     <button class="flex items-center">
                         <UIcon name="i-heroicons-bars-3-20-solid" class="w-6 h-6 opacity-40" />
@@ -71,7 +71,7 @@
                     </UDropdown>
                 </div>
             </nav>
-            <div class="px-8 py-8 flex justify-center">
+            <div class="px-2 sm:px-8 flex justify-center mt-[60px]">
                 <div class=" max-w-[1280px] w-full">
                     <slot />
                 </div>
