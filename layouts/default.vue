@@ -55,19 +55,17 @@
                     <button class="flex items-center">
                         <UIcon name="i-heroicons-bars-3-20-solid" class="w-6 h-6 opacity-40" />
                     </button>
-                    <p class="mt-1 font-medium hidden md:block">National Telecom Public Company Limited</p>
+                    <p class="mt-1 font-medium">National Telecom Public Company Limited</p>
                 </div>
-                <div class="flex items-center">
-                    <UDropdown :items="items" :popper="{ placement: 'bottom-start' }">
-                        <span class="flex items-center gap-2"">
-                            <UAvatar
-                                size="sm"
-                                src="https://avatars.githubusercontent.com/u/739984?v=4"
-                                alt="Avatar"
-                            />
-                            Howdy , National Telecom
-                            <UIcon name="i-heroicons-chevron-down-20-solid" class="w-5 h-5 opacity-40 -mt-1" />
-                        </span>
+                <div class="flex items-center gap-2">
+                    <UAvatar
+                        size="sm"
+                        src="https://avatars.githubusercontent.com/u/739984?v=4"
+                        alt="Avatar"
+                    />
+                    <p class="hidden sm:block">Howdy , National Telecom</p>
+                    <UDropdown :items="items" :popper="{ placement: 'bottom-start' }" class="flex items-center gap-2">
+                        <UIcon name="i-heroicons-chevron-down-20-solid" class="w-5 h-5 opacity-40 -mt-1" />
                     </UDropdown>
                 </div>
             </nav>
@@ -128,7 +126,7 @@ async function search(q: string) {
 
 
 <style scoped>
-div {
-    font-family: "NTR", sans-serif;
-}
+    div {
+        font-family: "NTR", sans-serif;
+    }
 </style>

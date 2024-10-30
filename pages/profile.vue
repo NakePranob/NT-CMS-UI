@@ -1,15 +1,8 @@
 <template>
     <div class="w-full pb-16">
         <div class="flex  gap-4 -mt-[1px] justify-end">
-            <UDropdown v-model:open="open" :items="items" :popper="{ placement: 'bottom-start' }">
-                <UButton color="white" label="Screen Options" :ui="{ rounded: 'rounded-t-none' }"
-                    trailing-icon="i-heroicons-chevron-down-20-solid" />
-            </UDropdown>
-
-            <UDropdown v-model:open="open" :items="items" :popper="{ placement: 'bottom-start' }">
-                <UButton color="white" label="Help" :ui="{ rounded: 'rounded-t-none' }"
-                    trailing-icon="i-heroicons-chevron-down-20-solid" />
-            </UDropdown>
+            <ScreenOptions/>
+            <MenuHelp/>
         </div>
         <div class="mb-8">
             <h1 class="text-3xl font-semibold">Profile</h1>
@@ -98,6 +91,6 @@
 </template>
 
 <script setup>
-const language = ['Site Default', 'English', 'Thailand']
-const languageSelected = ref(language[0])
+    const language = ['Site Default', 'English', 'Thailand']
+    const languageSelected = ref(language[0])
 </script>

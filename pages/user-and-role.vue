@@ -1,13 +1,8 @@
 <template>
     <div class="w-full pb-16">
         <div class="flex  gap-4 -mt-[1px] justify-end">
-            <UDropdown v-model:open="open" :items="items" :popper="{ placement: 'bottom-start' }">
-                <UButton color="white" label="Screen Options" :ui="{ rounded: 'rounded-t-none' }" trailing-icon="i-heroicons-chevron-down-20-solid" />
-            </UDropdown>
-
-            <UDropdown v-model:open="open" :items="items" :popper="{ placement: 'bottom-start' }">
-                <UButton color="white" label="Help" :ui="{ rounded: 'rounded-t-none' }" trailing-icon="i-heroicons-chevron-down-20-solid" />
-            </UDropdown>
+            <ScreenOptions/>
+            <MenuHelp/>
         </div>
         <div class="flex justify-between mb-8">
             <div>
