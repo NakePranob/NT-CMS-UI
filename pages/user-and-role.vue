@@ -34,24 +34,21 @@
             {{ pageCount }} item
         </div>
         <div class="border dark:border-gray-700 shadow-sm rounded-md">
-            <UTable v-model="selected" :rows="rows" :columns="columns" @select="select">
-                <template #username-data="{ row }">
-                    <div class="flex items-center gap-3 -my-2">
-                        <div class="w-14 h-14 rounded bg-slate-100 flex justify-center items-center">
-                            <img v-if="row.image" :src="row.image" :alt="row.username"
-                                class="w-full h-full rounded object-cover">
-                            <UIcon v-else name="i-heroicons-user" class="w-4 h-4" />
-                        </div>
-                        <span class="font-medium">{{ row.username }}</span>
-                    </div>
-                </template>
-            </UTable>
+            <UTable v-model="selected" :rows="rows" :columns="columns" @select="select"/>
             <div class="p-3 border-t dark:border-gray-700">
                 <UPagination v-model="page" :page-count="pageCount" :total="peopleCount" :ui="{
                     wrapper: 'flex items-center gap-1',
-                    rounded: '!rounded-full min-w-[32px] justify-center ring-0 shadow-none',
+                    rounded: '!rounded-full min-w-[32px] justify-center ring-0 shadow-none shadow-none',
                 }" />
             </div>
+        </div>
+        <div class="flex gap-2 mt-6">
+            <UDropdown :items="bulks" :popper="{ placement: 'bottom-start' }">
+                <UButton color="white" label="Bilk Action" trailing-icon="i-heroicons-chevron-down-20-solid" />
+            </UDropdown>
+            <UButton label="Apply" class="text-black" />
+            <USelectMenu v-model="roleSelected" :options="role" multiple placeholder="Change role to.." />
+            <UButton label="Filter" class="text-black" @click="filteredRows" />
         </div>
     </div>
 </template>
@@ -66,7 +63,8 @@ const columns = [{
     label: 'Name'
 }, {
     key: 'email',
-    label: 'Email'
+    label: 'Email',
+    sortable: true
 }, {
     key: 'role',
     label: 'Role'

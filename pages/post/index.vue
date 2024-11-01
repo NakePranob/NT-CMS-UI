@@ -26,7 +26,7 @@
                 <UButton label="Filter" class="text-black" @click="filteredRows" />
             </div>
             <div class="flex gap-2">
-                <UInput v-model="q" icon="i-heroicons-magnifying-glass" placeholder="Search..." />
+                <UInput v-model="q" icon="i-heroicons-magnifying-glass" placeholder="Search Posts" />
                 <UButton label="Search" class="text-black" @click="filteredRows" />
             </div>
         </div>
@@ -55,7 +55,7 @@
             <div class="p-3 border-t dark:border-gray-700">
                 <UPagination v-model="page" :page-count="pageCount" :total="peopleCount" :ui="{
                     wrapper: 'flex items-center gap-1',
-                    rounded: '!rounded-full min-w-[32px] justify-center ring-0',
+                    rounded: '!rounded-full min-w-[32px] justify-center ring-0 shadow-none',
                 }" />
             </div>
         </div>

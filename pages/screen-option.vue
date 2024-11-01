@@ -1,12 +1,33 @@
 <template>
     <div class="w-full pb-16">
-        <div class="flex  gap-4 -mt-[1px] justify-end">
+        <div class="rounded-b-lg border-x border-b border-neutral-300 relative-10 px-8 py-4">
+            <div class="mb-4">
+                <b class="font-semibold">Columns</b>
+                <div class="flex gap-4 pt-1">
+                    <UCheckbox label="Thumbnail" color="green"/>
+                    <UCheckbox label="Author" color="green"/>
+                    <UCheckbox label="State" color="green"/>
+                    <UCheckbox label="Comments" color="green"/>
+                    <UCheckbox label="Like" color="green"/>
+                    <UCheckbox label="Date" color="green"/>
+                </div>
+            </div>
+            <div class="mb-4">
+                <b class="font-semibold">Pagination</b>
+                <p>Number of item per page</p>
+            </div>
+            <div class="mb-4">
+                <b class="font-semibold">View Mode</b>
+                <p>Number of item per page</p>
+            </div>
+            <UButton class="text-black">Apply</UButton>
+        </div>
+        <div class="flex gap-4 px-20 -mt-[1px] justify-end">
             <ScreenOptions />
-            <MenuHelp />
         </div>
         <div class="flex justify-between mb-8">
             <div>
-                <h1 class="text-3xl font-semibold">User & Role</h1>
+                <h1 class="text-3xl font-semibold">Pages</h1>
                 <p class="underline opacity-40">
                     All (14) | Adminstrator (12) | Author (1)
                 </p>
@@ -26,7 +47,7 @@
                 <UButton label="Filter" class="text-black" @click="filteredRows" />
             </div>
             <div class="flex gap-2">
-                <UInput v-model="q" icon="i-heroicons-magnifying-glass" placeholder="Search Pages" />
+                <UInput v-model="q" icon="i-heroicons-magnifying-glass" placeholder="Search Posts" />
                 <UButton label="Search" class="text-black" @click="filteredRows" />
             </div>
         </div>
