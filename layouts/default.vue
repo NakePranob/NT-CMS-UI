@@ -3,7 +3,7 @@
         <span @click="isOpen = !isOpen" class="lg:hidden fixed top-0 left-0 w-screen h-screen bg-slate-500/20 dark:bg-slate-800/20 z-10"
         :class="{'hidden': !isOpen}"></span>
         <div class="w-72 fixed top-0 border-e dark:border-gray-700 h-screen px-4 pt-4 backdrop-blur-3xl z-20 bg-white/80 dark:bg-neutral-950/0
-        transition-all duration-300 ease-in-out"
+        transition-all duration-300 ease-in-out shadow-xl lg:shadow-none"
             :class="{
             '-left-72': !isOpen,
             'left-0': isOpen
@@ -19,7 +19,7 @@
                     </template>
                 </UInputMenu>
             </div>
-            <ul>
+            <ul class="flex flex-col gap-2">
                 <li>
                     <NuxtLink to="/" class="flex gap-2 items-center px-3 py-3 font-semibold rounded"
                         :class="{ 'bg-primary-app dark:text-black': $route.path === '/' }">
@@ -27,16 +27,47 @@
                     </NuxtLink>
                 </li>
                 <li>
-                    <NuxtLink to="#" class="flex gap-2 items-center px-3 py-3 font-semibold rounded"
+                    <NuxtLink to="/page" class="flex gap-2 items-center px-3 py-3 font-semibold rounded"
                         :class="{ 'bg-primary-app dark:text-black': $route.path === '/pages' }">
                         <UIcon name="i-heroicons-document" class="w-5 h-5" /> Pages
                     </NuxtLink>
                 </li>
                 <li>
-                    <NuxtLink to="#" class="flex gap-2 items-center px-3 py-3 font-semibold rounded"
-                        :class="{ 'bg-primary-app dark:text-black': $route.path === '/post' }">
-                        <UIcon name="i-heroicons-computer-desktop" class="w-5 h-5" /> Post
-                    </NuxtLink>
+                    <button @click="isPostOpen = !isPostOpen" class="flex justify-between w-full items-center px-3 py-3 font-semibold rounded"
+                        :class="{ 'bg-primary-app dark:text-black': isPostOpen }">
+                        <div class="flex items-center gap-2"">
+                            <UIcon name="i-heroicons-computer-desktop" class="w-5 h-5" /> Post
+                        </div>
+                        <UIcon name="i-heroicons-chevron-down-20-solid" class="w-5 h-5 opacity-40 -mt-1 dark:text-black" 
+                        :class="{ 'rotate-180': isPostOpen }"/>
+                    </button>
+                    <div class="flex flex-col gap-3 rounded overflow-hidden bg-slate-100 lg:bg-slate-50 transition-all duration-300 ease-in-out"
+                    :class="{ 'opacity-0 h-0': !isPostOpen, 'opacity-100 h-[112px] px-4 py-2 mt-1': isPostOpen }">
+                        <NuxtLink 
+                            to="/post"
+                            :class="{
+                                'opacity-60': $route.path !== '/post'
+                            }"
+                        >
+                            All Post
+                        </NuxtLink>
+                        <NuxtLink 
+                            to="#"
+                            :class="{
+                                'opacity-60': $route.path !== '/add-post'
+                            }"
+                        >
+                            Add New
+                        </NuxtLink>
+                        <NuxtLink 
+                            to="#"
+                            :class="{
+                                'opacity-60': $route.path !== '/category'
+                            }"
+                        >
+                            Category
+                        </NuxtLink>
+                    </div>
                 </li>
                 <li>
                     <NuxtLink to="#" class="flex gap-2 items-center px-3 py-3 font-semibold rounded"
@@ -98,7 +129,8 @@
 <script setup lang="ts">
 const loading = ref(false)
 const selected = ref()
-const isOpen = ref(false);
+const isOpen = ref(false)
+const isPostOpen = ref(false)
 
 onMounted(() => {
   isOpen.value = window.innerWidth > 1024;

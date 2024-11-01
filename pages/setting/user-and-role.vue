@@ -18,7 +18,9 @@
         </div>
         <div class="flex flex-col gap-2 md:flex-row justify-between">
             <div class="flex gap-2">
-                <USelectMenu v-model="bulkSelected" :options="bulk" multiple placeholder="Bulk actions" />
+                <UDropdown :items="bulks" :popper="{ placement: 'bottom-start' }">
+                    <UButton color="white" label="Bilk Action" trailing-icon="i-heroicons-chevron-down-20-solid" />
+                </UDropdown>
                 <UButton label="Apply" class="text-black" />
                 <USelectMenu v-model="roleSelected" :options="role" multiple placeholder="Change role to.." />
                 <UButton label="Filter" class="text-black" @click="filteredRows" />
@@ -79,8 +81,8 @@ const people = [
         email: 'lindsay.walton@example.com',
         role: 'Editer',
         post: 0,
-        image: '/img/logo.png'
-    }, 
+        image: '/img/404.jpg'
+    },
     {
         username: 'user',
         name: 'Courtney Henry',
@@ -95,8 +97,8 @@ const people = [
         email: 'lindsay.walton@example.com',
         role: 'Editer',
         post: 2,
-        image: '/img/logo.png'
-    }, 
+        image: '/img/404.jpg'
+    },
     {
         username: 'user',
         name: 'Courtney Henry',
@@ -111,8 +113,8 @@ const people = [
         email: 'lindsay.walton@example.com',
         role: 'Editer',
         post: 4,
-        image: '/img/logo.png'
-    }, 
+        image: '/img/404.jpg'
+    },
     {
         username: 'user',
         name: 'Courtney Henry',
@@ -127,8 +129,8 @@ const people = [
         email: 'lindsay.walton@example.com',
         role: 'Editer',
         post: 6,
-        image: '/img/logo.png'
-    }, 
+        image: '/img/404.jpg'
+    },
     {
         username: 'user',
         name: 'Courtney Henry',
@@ -143,8 +145,8 @@ const people = [
         email: 'lindsay.walton@example.com',
         role: 'Editer',
         post: 0,
-        image: '/img/logo.png'
-    }, 
+        image: '/img/404.jpg'
+    },
     {
         username: 'user',
         name: 'Courtney Henry',
@@ -159,8 +161,8 @@ const people = [
         email: 'lindsay.walton@example.com',
         role: 'Editer',
         post: 2,
-        image: '/img/logo.png'
-    }, 
+        image: '/img/404.jpg'
+    },
     {
         username: 'user',
         name: 'Courtney Henry',
@@ -175,8 +177,8 @@ const people = [
         email: 'lindsay.walton@example.com',
         role: 'Editer',
         post: 4,
-        image: '/img/logo.png'
-    }, 
+        image: '/img/404.jpg'
+    },
     {
         username: 'user',
         name: 'Courtney Henry',
@@ -191,8 +193,8 @@ const people = [
         email: 'lindsay.walton@example.com',
         role: 'Editer',
         post: 6,
-        image: '/img/logo.png'
-    }, 
+        image: '/img/404.jpg'
+    },
     {
         username: 'user',
         name: 'Courtney Henry',
@@ -207,8 +209,8 @@ const people = [
         email: 'lindsay.walton@example.com',
         role: 'Editer',
         post: 0,
-        image: '/img/logo.png'
-    }, 
+        image: '/img/404.jpg'
+    },
     {
         username: 'user',
         name: 'Courtney Henry',
@@ -223,8 +225,8 @@ const people = [
         email: 'lindsay.walton@example.com',
         role: 'Editer',
         post: 2,
-        image: '/img/logo.png'
-    }, 
+        image: '/img/404.jpg'
+    },
     {
         username: 'user',
         name: 'Courtney Henry',
@@ -239,8 +241,8 @@ const people = [
         email: 'lindsay.walton@example.com',
         role: 'Editer',
         post: 4,
-        image: '/img/logo.png'
-    }, 
+        image: '/img/404.jpg'
+    },
     {
         username: 'user',
         name: 'Courtney Henry',
@@ -255,8 +257,8 @@ const people = [
         email: 'lindsay.walton@example.com',
         role: 'Editer',
         post: 6,
-        image: '/img/logo.png'
-    }, 
+        image: '/img/404.jpg'
+    },
     {
         username: 'user',
         name: 'Courtney Henry',
@@ -284,8 +286,18 @@ function select(row) {
 
 const selected = ref([])
 
-const bulk = ['Wade Cooper', 'Arlene Mccoy', 'Devon Webb']
-const bulkSelected = ref([])
+const bulks = [
+   [{
+        label: 'Archive',
+        icon: 'i-heroicons-archive-box-20-solid'
+    }, {
+        label: 'Set Publish Date',
+        icon: 'i-heroicons-arrow-right-circle-20-solid'
+    }], [{
+        label: 'Delete',
+        icon: 'i-heroicons-trash-20-solid'
+    }]
+]
 
 const role = ['Admin', 'Menager', 'Editer']
 const roleSelected = ref([])
